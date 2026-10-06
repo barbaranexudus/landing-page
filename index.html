@@ -3,185 +3,2058 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Nexus | Modern Coworking Space</title>
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
     <style>
-        /* CSS Reset & Variables */
+
+        /* =========================================
+           VARIABLES
+        ========================================== */
+
         :root {
-            --primary: #2d3436;
-            --accent: #0984e3;
-            --light: #f5f6fa;
+            --black: #171717;
+            --cream: #f7f4ed;
             --white: #ffffff;
+
+            --coral: #e95052;
+            --coral-dark: #d83e42;
+
+            --green: #dce9df;
+            --yellow: #f1d36b;
+
+            --grey: #737373;
+            --light-grey: #ece8df;
+
+            --radius: 28px;
         }
+
+
+        /* =========================================
+           RESET
+        ========================================== */
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
-            background-color: var(--light);
-            color: var(--primary);
+            font-family: "DM Sans", sans-serif;
+            background: var(--cream);
+            color: var(--black);
             line-height: 1.6;
         }
 
-        /* Navigation */
+        img {
+            display: block;
+            width: 100%;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        button {
+            font: inherit;
+        }
+
+
+        /* =========================================
+           CONTAINER
+        ========================================== */
+
+        .container {
+            width: min(1180px, 88%);
+            margin: auto;
+        }
+
+
+        /* =========================================
+           NAVIGATION
+        ========================================== */
+
+        header {
+            background: var(--cream);
+        }
+
         nav {
+            height: 95px;
+
             display: flex;
-            justify-content: space-between;
             align-items: center;
-            padding: 1.5rem 10%;
-            background: var(--white);
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
+            justify-content: space-between;
         }
 
         .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: var(--accent);
+            font-family: "Manrope", sans-serif;
+            font-size: 1.35rem;
+            font-weight: 800;
+            letter-spacing: -1px;
+        }
+
+        .logo span {
+            color: var(--coral);
         }
 
         .nav-links {
             list-style: none;
-            display: flex;
-        }
 
-        .nav-links li {
-            margin-left: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 35px;
         }
 
         .nav-links a {
-            text-decoration: none;
-            color: var(--primary);
+            font-size: .92rem;
             font-weight: 500;
-            transition: 0.3s;
+
+            transition: color .2s ease;
         }
 
         .nav-links a:hover {
-            color: var(--accent);
+            color: var(--coral);
         }
 
-        /* Hero Section */
+        .nav-button {
+            background: var(--black);
+            color: white;
+
+            padding: 13px 22px;
+            border-radius: 100px;
+
+            transition: .25s ease;
+        }
+
+        .nav-button:hover {
+            background: var(--coral);
+            color: white;
+        }
+
+        .menu-button {
+            display: none;
+
+            border: none;
+            background: transparent;
+
+            font-size: 1.7rem;
+            cursor: pointer;
+        }
+
+
+        /* =========================================
+           HERO
+        ========================================== */
+
         .hero {
-            height: 80vh;
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
-                        url('https://images.unsplash.com/photo-1527192491265-7e15c55b1ed2?auto=format&fit=crop&q=80&w=2070') no-repeat center center/cover;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
+            min-height: 730px;
+
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+
             align-items: center;
-            text-align: center;
-            color: var(--white);
-            padding: 0 20px;
+            gap: 70px;
+
+            padding-top: 55px;
+            padding-bottom: 100px;
+        }
+
+        .eyebrow {
+            color: var(--coral);
+
+            font-size: .72rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+
+            margin-bottom: 20px;
+
+            display: block;
         }
 
         .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
+            font-family: "Manrope", sans-serif;
+
+            font-size: clamp(3.8rem, 6vw, 6.3rem);
+            line-height: .95;
+
+            letter-spacing: -5px;
+
+            margin-bottom: 30px;
         }
 
-        .hero p {
-            font-size: 1.2rem;
-            max-width: 600px;
-            margin-bottom: 2rem;
+        .hero h1 span {
+            color: var(--coral);
         }
 
-        .btn {
-            background: var(--accent);
-            color: var(--white);
-            padding: 0.8rem 2.5rem;
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: bold;
-            transition: 0.3s;
+        .hero-description {
+            max-width: 510px;
+
+            font-size: 1.05rem;
+            color: var(--grey);
+
+            margin-bottom: 35px;
         }
 
-        .btn:hover {
-            background: #0773c5;
-            transform: translateY(-2px);
+
+        /* Hero buttons */
+
+        .hero-actions {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+
+            margin-bottom: 55px;
         }
 
-        /* Features Section */
-        .features {
-            padding: 5rem 10%;
+        .primary-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+
+            background: var(--coral);
+            color: white;
+
+            padding: 16px 27px;
+
+            border-radius: 100px;
+
+            font-weight: 600;
+
+            transition: .25s ease;
+        }
+
+        .primary-button:hover {
+            background: var(--coral-dark);
+            transform: translateY(-3px);
+        }
+
+        .text-button {
+            font-weight: 600;
+            border-bottom: 1px solid var(--black);
+        }
+
+
+        /* Stats */
+
+        .hero-stats {
+            display: flex;
+            gap: 45px;
+        }
+
+        .stat {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .stat strong {
+            font-family: "Manrope";
+            font-size: 1.6rem;
+        }
+
+        .stat span {
+            color: var(--grey);
+            font-size: .8rem;
+        }
+
+
+        /* Hero image */
+
+        .hero-image {
+            position: relative;
+        }
+
+        .hero-image img {
+            height: 590px;
+
+            object-fit: cover;
+
+            border-radius:
+                220px
+                220px
+                35px
+                35px;
+        }
+
+
+        /* Floating card */
+
+        .floating-card {
+            position: absolute;
+
+            left: -55px;
+            bottom: 45px;
+
+            background: white;
+
+            padding: 22px;
+
+            width: 220px;
+
+            border-radius: 20px;
+
+            box-shadow:
+                0 20px 60px
+                rgba(0,0,0,.13);
+        }
+
+        .floating-card small {
+            display: block;
+
+            color: var(--coral);
+
+            font-size: .65rem;
+            font-weight: 700;
+
+            margin-bottom: 8px;
+        }
+
+        .floating-card strong {
+            display: block;
+
+            font-size: 1rem;
+
+            margin-bottom: 8px;
+        }
+
+        .floating-card p {
+            color: var(--grey);
+
+            font-size: .78rem;
+        }
+
+
+        /* decorative circle */
+
+        .hero-circle {
+            position: absolute;
+
+            width: 95px;
+            height: 95px;
+
+            border-radius: 50%;
+
+            background: var(--yellow);
+
+            right: -30px;
+            top: 70px;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            text-align: center;
+
+            font-size: .65rem;
+            font-weight: 700;
+
+            transform: rotate(12deg);
+        }
+
+
+        /* =========================================
+           INTRO
+        ========================================== */
+
+        .intro {
+            background: var(--black);
+            color: white;
+
+            padding: 110px 0;
+        }
+
+        .intro-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
+            grid-template-columns: .8fr 1.2fr;
+
+            gap: 100px;
+        }
+
+        .section-label {
+            color: var(--coral);
+
+            font-size: .7rem;
+            font-weight: 700;
+
+            letter-spacing: 2px;
+        }
+
+        .intro h2 {
+            font-family: "Manrope";
+
+            font-size: clamp(2.8rem, 5vw, 5rem);
+
+            line-height: 1.05;
+
+            letter-spacing: -3px;
+        }
+
+        .intro h2 span {
+            color: var(--coral);
+        }
+
+
+        /* =========================================
+           AMENITIES
+        ========================================== */
+
+        .amenities {
+            padding: 120px 0;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+
+            margin-bottom: 60px;
+        }
+
+        .section-header h2 {
+            font-family: "Manrope";
+
+            font-size: clamp(2.5rem, 5vw, 4.5rem);
+
+            line-height: 1;
+
+            letter-spacing: -3px;
+
+            max-width: 600px;
+        }
+
+        .section-header p {
+            max-width: 350px;
+
+            color: var(--grey);
+        }
+
+        .amenities-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(4, 1fr);
+
+            gap: 20px;
+        }
+
+        .amenity {
+            border-top: 1px solid #ccc7bd;
+
+            padding: 30px 5px;
+
+            transition: .3s ease;
+        }
+
+        .amenity:hover {
+            transform: translateY(-5px);
+        }
+
+        .amenity-number {
+            color: var(--coral);
+
+            font-size: .75rem;
+
+            margin-bottom: 35px;
+        }
+
+        .amenity-icon {
+            font-size: 2rem;
+
+            margin-bottom: 20px;
+        }
+
+        .amenity h3 {
+            font-family: "Manrope";
+
+            margin-bottom: 12px;
+        }
+
+        .amenity p {
+            color: var(--grey);
+
+            font-size: .88rem;
+        }
+
+
+        /* =========================================
+           WORKSPACES
+        ========================================== */
+
+        .spaces {
+            background: white;
+
+            padding: 120px 0;
+        }
+
+        .spaces-title {
+            text-align: center;
+
+            max-width: 700px;
+
+            margin: 0 auto 70px;
+        }
+
+        .spaces-title h2 {
+            font-family: "Manrope";
+
+            font-size: clamp(2.8rem, 5vw, 4.5rem);
+
+            line-height: 1;
+
+            letter-spacing: -3px;
+
+            margin: 15px 0 20px;
+        }
+
+        .spaces-title p {
+            color: var(--grey);
+        }
+
+        .spaces-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 25px;
+        }
+
+        .space-card {
+            position: relative;
+
+            overflow: hidden;
+
+            border-radius: var(--radius);
+        }
+
+        .space-card img {
+            height: 460px;
+
+            object-fit: cover;
+
+            transition: transform .5s ease;
+        }
+
+        .space-card:hover img {
+            transform: scale(1.05);
+        }
+
+        .space-info {
+            position: absolute;
+
+            left: 20px;
+            right: 20px;
+            bottom: 20px;
+
+            background:
+                rgba(255,255,255,.94);
+
+            backdrop-filter: blur(10px);
+
+            padding: 20px;
+
+            border-radius: 18px;
+        }
+
+        .space-info h3 {
+            font-family: "Manrope";
+
+            margin-bottom: 5px;
+        }
+
+        .space-info p {
+            color: var(--grey);
+
+            font-size: .82rem;
+        }
+
+
+        /* =========================================
+           EXPERIENCE
+        ========================================== */
+
+        .experience {
+            padding: 120px 0;
+        }
+
+        .experience-grid {
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 90px;
+
+            align-items: center;
+        }
+
+        .experience-image {
+            position: relative;
+        }
+
+        .experience-image img {
+            height: 600px;
+
+            object-fit: cover;
+
+            border-radius: 30px;
+        }
+
+        .experience-content h2 {
+            font-family: "Manrope";
+
+            font-size: clamp(2.8rem, 5vw, 4.7rem);
+
+            line-height: 1;
+
+            letter-spacing: -3px;
+
+            margin: 18px 0 30px;
+        }
+
+        .experience-content > p {
+            color: var(--grey);
+
+            margin-bottom: 40px;
+        }
+
+        .benefit {
+            padding: 20px 0;
+
+            border-top:
+                1px solid #d5d0c7;
+
+            display: flex;
+
+            gap: 20px;
+        }
+
+        .benefit-number {
+            color: var(--coral);
+
+            font-weight: 700;
+        }
+
+        .benefit h4 {
+            margin-bottom: 5px;
+        }
+
+        .benefit p {
+            color: var(--grey);
+
+            font-size: .85rem;
+        }
+
+
+        /* =========================================
+           PRICING
+        ========================================== */
+
+        .pricing {
+            background: var(--green);
+
+            padding: 120px 0;
+        }
+
+        .pricing-header {
+            text-align: center;
+
+            max-width: 650px;
+
+            margin: auto;
+            margin-bottom: 60px;
+        }
+
+        .pricing-header h2 {
+            font-family: "Manrope";
+
+            font-size: clamp(2.8rem, 5vw, 4.5rem);
+
+            line-height: 1;
+
+            letter-spacing: -3px;
+
+            margin: 15px 0;
+        }
+
+        .pricing-header p {
+            color: var(--grey);
+        }
+
+        .pricing-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 25px;
+        }
+
+        .price-card {
+            background: white;
+
+            padding: 40px;
+
+            border-radius: 25px;
+
+            transition: .3s ease;
+        }
+
+        .price-card:hover {
+            transform: translateY(-7px);
+        }
+
+        .price-card.featured {
+            background: var(--black);
+            color: white;
+        }
+
+        .price-card h3 {
+            font-family: "Manrope";
+
+            font-size: 1.3rem;
+        }
+
+        .price {
+            font-family: "Manrope";
+
+            font-size: 3.3rem;
+            font-weight: 700;
+
+            margin: 20px 0 5px;
+        }
+
+        .price span {
+            font-family: "DM Sans";
+
+            font-size: .8rem;
+            font-weight: 400;
+
+            color: var(--grey);
+        }
+
+        .featured .price span {
+            color: #aaa;
+        }
+
+        .price-description {
+            color: var(--grey);
+
+            font-size: .88rem;
+
+            min-height: 65px;
+
+            margin-bottom: 25px;
+        }
+
+        .featured .price-description {
+            color: #bbb;
+        }
+
+        .price-card ul {
+            list-style: none;
+
+            margin: 30px 0;
+        }
+
+        .price-card li {
+            padding: 8px 0;
+
+            font-size: .88rem;
+        }
+
+        .price-card li::before {
+            content: "✓";
+
+            color: var(--coral);
+
+            margin-right: 10px;
+        }
+
+        .price-button {
+            display: block;
+
+            text-align: center;
+
+            border: 1px solid var(--black);
+
+            padding: 14px;
+
+            border-radius: 100px;
+
+            font-weight: 600;
+
+            transition: .2s;
+        }
+
+        .price-button:hover {
+            background: var(--black);
+            color: white;
+        }
+
+        .featured .price-button {
+            background: var(--coral);
+
+            border-color: var(--coral);
+        }
+
+
+        /* =========================================
+           TESTIMONIAL
+        ========================================== */
+
+        .testimonial {
+            padding: 130px 0;
+
             text-align: center;
         }
 
-        .feature-card {
-            background: var(--white);
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        .quote {
+            font-family: "Manrope";
+
+            font-size: clamp(2rem, 4vw, 3.7rem);
+
+            line-height: 1.2;
+
+            letter-spacing: -2px;
+
+            max-width: 900px;
+
+            margin: 20px auto 40px;
         }
 
-        .feature-card h3 {
-            margin-bottom: 1rem;
-            color: var(--accent);
+        .quote span {
+            color: var(--coral);
         }
 
-        /* Footer */
+        .testimonial-person {
+            font-size: .9rem;
+        }
+
+        .testimonial-person strong {
+            display: block;
+        }
+
+        .testimonial-person span {
+            color: var(--grey);
+        }
+
+
+        /* =========================================
+           CTA
+        ========================================== */
+
+        .cta {
+            padding-bottom: 100px;
+        }
+
+        .cta-box {
+            background: var(--coral);
+
+            color: white;
+
+            border-radius: 35px;
+
+            padding: 80px;
+
+            display: flex;
+
+            justify-content: space-between;
+            align-items: center;
+
+            gap: 50px;
+        }
+
+        .cta h2 {
+            font-family: "Manrope";
+
+            font-size: clamp(2.5rem, 5vw, 4.7rem);
+
+            line-height: 1;
+
+            letter-spacing: -3px;
+
+            max-width: 650px;
+        }
+
+        .cta-button {
+            flex-shrink: 0;
+
+            background: white;
+            color: var(--black);
+
+            padding: 17px 27px;
+
+            border-radius: 100px;
+
+            font-weight: 700;
+
+            transition: .25s;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-4px);
+        }
+
+
+        /* =========================================
+           FOOTER
+        ========================================== */
+
         footer {
-            background: var(--primary);
-            color: var(--white);
-            text-align: center;
-            padding: 2rem 0;
-            margin-top: 2rem;
+            background: var(--black);
+            color: white;
+
+            padding: 80px 0 30px;
         }
 
-        /* Responsive */
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 2.5rem; }
-            .nav-links { display: none; }
+        .footer-grid {
+            display: grid;
+
+            grid-template-columns:
+                2fr 1fr 1fr;
+
+            gap: 70px;
+
+            margin-bottom: 70px;
         }
+
+        .footer-logo {
+            font-family: "Manrope";
+
+            font-size: 2rem;
+            font-weight: 800;
+
+            margin-bottom: 15px;
+        }
+
+        .footer-logo span {
+            color: var(--coral);
+        }
+
+        .footer-description {
+            color: #aaa;
+
+            max-width: 350px;
+
+            font-size: .9rem;
+        }
+
+        .footer-column h4 {
+            margin-bottom: 20px;
+        }
+
+        .footer-column a {
+            display: block;
+
+            color: #aaa;
+
+            margin: 10px 0;
+
+            font-size: .9rem;
+        }
+
+        .footer-column a:hover {
+            color: var(--coral);
+        }
+
+        .footer-bottom {
+            border-top:
+                1px solid #333;
+
+            padding-top: 25px;
+
+            color: #777;
+
+            font-size: .8rem;
+
+            display: flex;
+            justify-content: space-between;
+        }
+
+
+        /* =========================================
+           RESPONSIVE
+        ========================================== */
+
+        @media (max-width: 900px) {
+
+            .nav-links {
+                display: none;
+            }
+
+            .menu-button {
+                display: block;
+            }
+
+            .hero {
+                grid-template-columns: 1fr;
+
+                padding-top: 40px;
+            }
+
+            .hero h1 {
+                letter-spacing: -3px;
+            }
+
+            .hero-image {
+                max-width: 600px;
+            }
+
+            .floating-card {
+                left: 20px;
+            }
+
+            .intro-grid {
+                grid-template-columns: 1fr;
+
+                gap: 40px;
+            }
+
+            .amenities-grid {
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+            .spaces-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .space-card img {
+                height: 500px;
+            }
+
+            .experience-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .pricing-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-box {
+                flex-direction: column;
+
+                align-items: flex-start;
+
+                padding: 50px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+        }
+
+
+        @media (max-width: 600px) {
+
+            .container {
+                width: 90%;
+            }
+
+            nav {
+                height: 75px;
+            }
+
+            .hero {
+                padding-bottom: 70px;
+            }
+
+            .hero h1 {
+                font-size: 3.6rem;
+
+                letter-spacing: -3px;
+            }
+
+            .hero-actions {
+                align-items: flex-start;
+
+                flex-direction: column;
+
+                gap: 20px;
+            }
+
+            .hero-stats {
+                gap: 25px;
+            }
+
+            .hero-image img {
+                height: 480px;
+            }
+
+            .hero-circle {
+                width: 75px;
+                height: 75px;
+
+                right: -10px;
+            }
+
+            .section-header {
+                flex-direction: column;
+
+                align-items: flex-start;
+
+                gap: 25px;
+            }
+
+            .amenities-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .space-card img {
+                height: 420px;
+            }
+
+            .experience-image img {
+                height: 450px;
+            }
+
+            .cta-box {
+                padding: 40px 25px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+
+                gap: 10px;
+            }
+
+        }
+
     </style>
 </head>
+
+
 <body>
 
-    <nav>
-        <div class="logo">NEXUS CO-WORK</div>
+
+<!-- =========================================
+     NAVIGATION
+========================================== -->
+
+<header>
+
+    <nav class="container">
+
+        <a href="#" class="logo">
+            NEXUS<span>.</span>
+        </a>
+
         <ul class="nav-links">
-            <li><a href="#">Home</a></li>
-            <li><a href="#amenities">Amenities</a></li>
-            <li><a href="#pricing">Pricing</a></li>
-            <li><a href="#contact">Contact</a></li>
+
+            <li>
+                <a href="#about">About</a>
+            </li>
+
+            <li>
+                <a href="#spaces">Spaces</a>
+            </li>
+
+            <li>
+                <a href="#amenities">Amenities</a>
+            </li>
+
+            <li>
+                <a href="#pricing">Membership</a>
+            </li>
+
+            <li>
+                <a href="#contact" class="nav-button">
+                    Book a tour
+                </a>
+            </li>
+
         </ul>
+
+        <button
+            class="menu-button"
+            aria-label="Open navigation"
+        >
+            ☰
+        </button>
+
     </nav>
 
-    <section class="hero">
-        <h1>Work Better, Together.</h1>
-        <p>Premium flexible office spaces designed for creators, entrepreneurs, and teams of all sizes.</p>
-        <a href="#pricing" class="btn">Book a Tour</a>
-    </section>
+</header>
 
-    <section class="features" id="amenities">
-        <div class="feature-card">
-            <h3>High-Speed Wifi</h3>
-            <p>Fiber optic connection ensures you're always connected at lightning speed.</p>
-        </div>
-        <div class="feature-card">
-            <h3>Meeting Rooms</h3>
-            <p>Fully equipped rooms with the latest AV tech for your big presentations.</p>
-        </div>
-        <div class="feature-card">
-            <h3>Free Coffee</h3>
-            <p>Unlimited artisan coffee and tea to keep your productivity flowing.</p>
-        </div>
-        <div class="feature-card">
-            <h3>24/7 Access</h3>
-            <p>Work whenever you're most inspired with secure round-the-clock entry.</p>
-        </div>
-    </section>
 
-    <footer>
-        <p>&copy; 2026 Nexus Coworking Spaces. Built with passion for productivity.</p>
-    </footer>
+
+<main>
+
+
+<!-- =========================================
+     HERO
+========================================== -->
+
+<section class="hero container">
+
+    <div class="hero-content">
+
+        <span class="eyebrow">
+            A BETTER WAY TO WORK
+        </span>
+
+        <h1>
+            Work.
+            Connect.
+            <span>Grow.</span>
+        </h1>
+
+        <p class="hero-description">
+            Beautiful, flexible workspaces designed
+            for freelancers, founders and teams who
+            want more than just a desk.
+        </p>
+
+
+        <div class="hero-actions">
+
+            <a
+                href="#spaces"
+                class="primary-button"
+            >
+                Explore our spaces
+                <span>→</span>
+            </a>
+
+            <a
+                href="#about"
+                class="text-button"
+            >
+                Discover Nexus
+            </a>
+
+        </div>
+
+
+        <div class="hero-stats">
+
+            <div class="stat">
+                <strong>500+</strong>
+                <span>Members</span>
+            </div>
+
+            <div class="stat">
+                <strong>12</strong>
+                <span>Spaces</span>
+            </div>
+
+            <div class="stat">
+                <strong>4.9</strong>
+                <span>Member rating</span>
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <div class="hero-image">
+
+        <img
+            src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1200&q=85"
+            alt="Modern Nexus coworking space"
+        >
+
+
+        <div class="floating-card">
+
+            <small>
+                ● OPEN TODAY
+            </small>
+
+            <strong>
+                Your desk is waiting.
+            </strong>
+
+            <p>
+                Drop in, plug in and
+                get to work.
+            </p>
+
+        </div>
+
+
+        <div class="hero-circle">
+            FIND YOUR
+            <br>
+            SPACE →
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================
+     INTRO
+========================================== -->
+
+<section
+    class="intro"
+    id="about"
+>
+
+    <div class="container intro-grid">
+
+        <div>
+
+            <span class="section-label">
+                ABOUT NEXUS
+            </span>
+
+        </div>
+
+
+        <div>
+
+            <h2>
+                More than an office.
+                A place to
+                <span>belong.</span>
+            </h2>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================
+     AMENITIES
+========================================== -->
+
+<section
+    class="amenities container"
+    id="amenities"
+>
+
+    <div class="section-header">
+
+        <h2>
+            Everything you need
+            to do your best work.
+        </h2>
+
+        <p>
+            We take care of the details so
+            you can focus on building,
+            creating and connecting.
+        </p>
+
+    </div>
+
+
+    <div class="amenities-grid">
+
+
+        <article class="amenity">
+
+            <div class="amenity-number">
+                01
+            </div>
+
+            <div class="amenity-icon">
+                ⚡
+            </div>
+
+            <h3>
+                Superfast WiFi
+            </h3>
+
+            <p>
+                Reliable high-speed internet
+                throughout every workspace.
+            </p>
+
+        </article>
+
+
+
+        <article class="amenity">
+
+            <div class="amenity-number">
+                02
+            </div>
+
+            <div class="amenity-icon">
+                ◉
+            </div>
+
+            <h3>
+                Meeting Rooms
+            </h3>
+
+            <p>
+                Beautiful private rooms equipped
+                for calls, workshops and meetings.
+            </p>
+
+        </article>
+
+
+
+        <article class="amenity">
+
+            <div class="amenity-number">
+                03
+            </div>
+
+            <div class="amenity-icon">
+                ☕
+            </div>
+
+            <h3>
+                Unlimited Coffee
+            </h3>
+
+            <p>
+                Great coffee, tea and refreshments
+                whenever you need a boost.
+            </p>
+
+        </article>
+
+
+
+        <article class="amenity">
+
+            <div class="amenity-number">
+                04
+            </div>
+
+            <div class="amenity-icon">
+                ↗
+            </div>
+
+            <h3>
+                24/7 Access
+            </h3>
+
+            <p>
+                Your schedule, your rules.
+                Secure access whenever inspiration hits.
+            </p>
+
+        </article>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================
+     SPACES
+========================================== -->
+
+<section
+    class="spaces"
+    id="spaces"
+>
+
+    <div class="container">
+
+        <div class="spaces-title">
+
+            <span class="section-label">
+                FIND YOUR SPACE
+            </span>
+
+            <h2>
+                Work your way.
+            </h2>
+
+            <p>
+                From a desk for the day to a private
+                home for your whole team.
+            </p>
+
+        </div>
+
+
+        <div class="spaces-grid">
+
+
+            <article class="space-card">
+
+                <img
+                    src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=900&q=85"
+                    alt="Hot desk coworking area"
+                >
+
+                <div class="space-info">
+
+                    <h3>
+                        Hot Desk
+                    </h3>
+
+                    <p>
+                        Your flexible desk,
+                        whenever you need it.
+                    </p>
+
+                </div>
+
+            </article>
+
+
+
+            <article class="space-card">
+
+                <img
+                    src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=900&q=85"
+                    alt="Dedicated coworking desk"
+                >
+
+                <div class="space-info">
+
+                    <h3>
+                        Dedicated Desk
+                    </h3>
+
+                    <p>
+                        Your own desk in our
+                        creative community.
+                    </p>
+
+                </div>
+
+            </article>
+
+
+
+            <article class="space-card">
+
+                <img
+                    src="https://images.unsplash.com/photo-1497366753843-8c6c8e50f873?auto=format&fit=crop&w=900&q=85"
+                    alt="Private office"
+                >
+
+                <div class="space-info">
+
+                    <h3>
+                        Private Office
+                    </h3>
+
+                    <p>
+                        Privacy for your team,
+                        community outside your door.
+                    </p>
+
+                </div>
+
+            </article>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================
+     EXPERIENCE
+========================================== -->
+
+<section class="experience">
+
+    <div class="container experience-grid">
+
+
+        <div class="experience-image">
+
+            <img
+                src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=1100&q=85"
+                alt="People working together"
+            >
+
+        </div>
+
+
+
+        <div class="experience-content">
+
+            <span class="section-label">
+                WHY NEXUS?
+            </span>
+
+            <h2>
+                Built around
+                people, not desks.
+            </h2>
+
+            <p>
+                We believe great work happens when
+                inspiring spaces, useful amenities
+                and brilliant people come together.
+            </p>
+
+
+
+            <div class="benefit">
+
+                <div class="benefit-number">
+                    01
+                </div>
+
+                <div>
+
+                    <h4>
+                        Community first
+                    </h4>
+
+                    <p>
+                        Meet founders, freelancers,
+                        creatives and teams from
+                        across the city.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="benefit">
+
+                <div class="benefit-number">
+                    02
+                </div>
+
+                <div>
+
+                    <h4>
+                        Flexible by design
+                    </h4>
+
+                    <p>
+                        Scale your workspace up
+                        or down as your needs change.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="benefit">
+
+                <div class="benefit-number">
+                    03
+                </div>
+
+                <div>
+
+                    <h4>
+                        Spaces you'll love
+                    </h4>
+
+                    <p>
+                        Thoughtfully designed environments
+                        that make coming to work feel good.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================
+     PRICING
+========================================== -->
+
+<section
+    class="pricing"
+    id="pricing"
+>
+
+    <div class="container">
+
+        <div class="pricing-header">
+
+            <span class="section-label">
+                MEMBERSHIP
+            </span>
+
+            <h2>
+                Simple plans.
+                Zero hassle.
+            </h2>
+
+            <p>
+                Choose the membership that works
+                for you. Change whenever you need.
+            </p>
+
+        </div>
+
+
+        <div class="pricing-grid">
+
+
+            <article class="price-card">
+
+                <h3>
+                    Day Pass
+                </h3>
+
+                <div class="price">
+                    £25
+                    <span>/ day</span>
+                </div>
+
+                <p class="price-description">
+                    Perfect when you need a
+                    productive place for the day.
+                </p>
+
+                <ul>
+                    <li>Hot desk access</li>
+                    <li>Superfast WiFi</li>
+                    <li>Unlimited coffee</li>
+                    <li>Community areas</li>
+                </ul>
+
+                <a
+                    href="#contact"
+                    class="price-button"
+                >
+                    Get started
+                </a>
+
+            </article>
+
+
+
+            <article class="price-card featured">
+
+                <h3>
+                    Coworking
+                </h3>
+
+                <div class="price">
+                    £199
+                    <span>/ month</span>
+                </div>
+
+                <p class="price-description">
+                    Our most popular membership
+                    for flexible professionals.
+                </p>
+
+                <ul>
+                    <li>Unlimited workspace access</li>
+                    <li>Meeting room credits</li>
+                    <li>24/7 member access</li>
+                    <li>Community events</li>
+                    <li>Member discounts</li>
+                </ul>
+
+                <a
+                    href="#contact"
+                    class="price-button"
+                >
+                    Join Nexus
+                </a>
+
+            </article>
+
+
+
+            <article class="price-card">
+
+                <h3>
+                    Private Office
+                </h3>
+
+                <div class="price">
+                    £499
+                    <span>/ month</span>
+                </div>
+
+                <p class="price-description">
+                    A private home for individuals
+                    and growing teams.
+                </p>
+
+                <ul>
+                    <li>Private furnished office</li>
+                    <li>24/7 access</li>
+                    <li>Meeting room credits</li>
+                    <li>Business address</li>
+                    <li>All member benefits</li>
+                </ul>
+
+                <a
+                    href="#contact"
+                    class="price-button"
+                >
+                    Enquire
+                </a>
+
+            </article>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================
+     TESTIMONIAL
+========================================== -->
+
+<section class="testimonial container">
+
+    <span class="section-label">
+        OUR COMMUNITY
+    </span>
+
+    <blockquote class="quote">
+
+        “Nexus completely changed the way
+        I work. I came for the desk and
+        stayed for the
+        <span>community.</span>”
+
+    </blockquote>
+
+    <div class="testimonial-person">
+
+        <strong>
+            Maya Thompson
+        </strong>
+
+        <span>
+            Founder, Studio North
+        </span>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================
+     CTA
+========================================== -->
+
+<section
+    class="cta"
+    id="contact"
+>
+
+    <div class="container">
+
+        <div class="cta-box">
+
+            <h2>
+                Your next great idea
+                needs a great place
+                to happen.
+            </h2>
+
+            <a
+                href="#"
+                class="cta-button"
+            >
+                Book a tour →
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+</main>
+
+
+
+<!-- =========================================
+     FOOTER
+========================================== -->
+
+<footer>
+
+    <div class="container">
+
+        <div class="footer-grid">
+
+
+            <div>
+
+                <div class="footer-logo">
+                    NEXUS<span>.</span>
+                </div>
+
+                <p class="footer-description">
+                    Flexible workspaces for people
+                    building interesting things.
+                </p>
+
+            </div>
+
+
+
+            <div class="footer-column">
+
+                <h4>
+                    Explore
+                </h4>
+
+                <a href="#about">
+                    About
+                </a>
+
+                <a href="#spaces">
+                    Spaces
+                </a>
+
+                <a href="#amenities">
+                    Amenities
+                </a>
+
+                <a href="#pricing">
+                    Membership
+                </a>
+
+            </div>
+
+
+
+            <div class="footer-column">
+
+                <h4>
+                    Visit
+                </h4>
+
+                <a href="#">
+                    London, UK
+                </a>
+
+                <a href="#">
+                    hello@nexus.co
+                </a>
+
+                <a href="#">
+                    Instagram
+                </a>
+
+                <a href="#">
+                    LinkedIn
+                </a>
+
+            </div>
+
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            <span>
+                © 2026 Nexus Coworking.
+            </span>
+
+            <span>
+                Made for better work.
+            </span>
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+
+<script>
+
+    /* =========================================
+       SIMPLE MOBILE MENU
+    ========================================== */
+
+    const menuButton =
+        document.querySelector(".menu-button");
+
+    const navLinks =
+        document.querySelector(".nav-links");
+
+
+    menuButton.addEventListener(
+        "click",
+        () => {
+
+            if (
+                navLinks.style.display === "flex"
+            ) {
+
+                navLinks.style.display = "none";
+
+            } else {
+
+                navLinks.style.display = "flex";
+
+                navLinks.style.position = "absolute";
+
+                navLinks.style.top = "75px";
+                navLinks.style.left = "0";
+
+                navLinks.style.width = "100%";
+
+                navLinks.style.background = "#f7f4ed";
+
+                navLinks.style.flexDirection = "column";
+
+                navLinks.style.padding = "30px";
+
+            }
+
+        }
+    );
+
+</script>
+
 
 </body>
 </html>
